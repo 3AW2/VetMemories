@@ -7,7 +7,7 @@
     die();
   } else{
     if($_SERVER["REQUEST_METHOD"] == "POST"){
-      $user = new User("Amanda Teste", $_POST["email"], $_POST["password"]);
+      $user = new User($_POST["email"], $_POST["password"]);
       $_SESSION["user"] = $user;
       header("location:home.php");
       die();

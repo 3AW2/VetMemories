@@ -25,7 +25,7 @@ if (isset($_SESSION["user"])) {
             <h1>Vet Memories</h1>
 
             <?php
-            if (!isset($_SESSION["user"])) {
+            if ($user != null) {
 
                 ?>
                 <ul>
@@ -33,7 +33,6 @@ if (isset($_SESSION["user"])) {
                     <li class='elemento'><button class='botao-menu'><a href="noticias.php">Cadastro</a></button></li>
 
                     <li class='elemento'><button class='botao-menu'><a href="login.php">Login</a></button></li>
-
                 </ul>
 
             <?php
@@ -42,9 +41,9 @@ if (isset($_SESSION["user"])) {
                 ?>
                 <ul>
 
-                    <li class='elemento'><button class='botao-menu'><a href="paginas/memorias.php">Memorias</a></button></li>
+                    <li class='elemento'><button class='botao-menu'><a href="noticias.php">Memorias</a></button></li>
 
-                    <li class='elemento'><button class='botao-menu'><a href="paginas/perfil.php">Perfil</a></button></li>
+                    <li class='elemento'><button class='botao-menu'><a href="login.php">Perfil</a></button></li>
                 </ul>
                 <?php
             }

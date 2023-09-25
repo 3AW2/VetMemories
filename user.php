@@ -1,22 +1,12 @@
 <?php
 
 class User{
-    private $nome;
     private $email;
     private $senha;
 
-    public function __construct($nome, $email, $senha) {
-        $this->setNome($nome);
+    public function __construct($email, $senha) {
         $this->setEmail($email);
         $this->setSenha($senha);
-    }
-
-    public function getNome() {
-        return $this->nome;
-    }
-
-    public function setNome($nome) {
-        $this->nome = $nome;
     }
 
     public function getEmail() {
@@ -33,6 +23,10 @@ class User{
 
     public function setSenha($senha) {
         $this->senha = $senha;
+    }
+
+    public function equals($user2) {
+        return $user2->getEmail() == $this->getEmail() && $user2->getSenha() == $this->getSenha();
     }
 }
 
