@@ -1,7 +1,28 @@
 <?php
 session_start();
+if (!empty($_GET["acao"])) {
+    if ($_GET["acao"] == "dark") {
+        if (empty($_COOKIE["mode"])) {
+            setcookie("mode", "dark", time() + 60000000, "/");
+            header("location:perfil.php");
+        } elseif ($_COOKIE["mode"] == "dark") {
+            setcookie("mode", "light", time() + 6000000, "/");
+            header("location:perfil.php");
+        } else {
+            setcookie("mode", "dark", time() + 60000000, "/");
+            header("location:perfil.php");
+        }
+    } else {
+        session_destroy();
+    }
+}
 if (isset($_SESSION["user"])) {
     $user = $_SESSION["user"];
+}
+if (!empty($_COOKIE["mode"]) && $_COOKIE["mode"] == "dark") {
+    $mode = "-dark";
+} else {
+    $mode = "";
 }
 ?>
 
@@ -19,37 +40,31 @@ if (isset($_SESSION["user"])) {
         rel="stylesheet">
 </head>
 
-<body>
+<body class=<?php echo "body" . $mode ?>>
     <header>
 
         <div class='header'>
-            <div class='titulo'>
+            <div class=<?php echo "titulo" . $mode ?>>
                 <h1><a href="homeLog.php" id='logo'>Vet Memories</a></h1>
-                <?php
-                if (!isset($_SESSION["user"])) { ?>
+                <ul>
+                    <li class=<?php echo "elemento" . $mode ?>>
+                        <form action="perfil.php" method="get">
+                            <button type="submit" name="acao" value="dark" class=<?php echo "botao-menu" . $mode ?>>
+                                <img src="../imagens/night-mode.png" style="max-width: 2vw;"> </button>
+                        </form>
+                    </li>
 
-                    <ul>
-                        <li class='elemento'><button class='botao-menu'><a href="./cadastro.php">Cadastro</a></button></li>
+                    <li class=<?php echo "elemento" . $mode ?>>
+                        <form action="homeLog.php" method="get">
+                            <button type="submit" name="acao" value="Sair" class=<?php echo "botao-menu" . $mode ?>>Sair</button>
+                        </form>
+                    </li>
 
-                        <li class='elemento'><button class='botao-menu'><a href="./login.php">Login</a></button></li>
-                    </ul>
+                    <li class=<?php echo "elemento" . $mode ?>><button class=<?php echo "botao-menu" . $mode ?>><a
+                                href="perfil.php">Perfil</a></button>
+                    </li>
 
-                    <?php
-                } else { ?>
-                    <ul>
-
-                        <li class='elemento'>
-                            <form action="homeLog.php" method="get">
-                                <button type="submit" name="acao" value="Sair" class='botao-menu'>Sair</button>
-                            </form>
-                        </li>
-
-                        <li class='elemento'><button class='botao-menu'><a href="perfil.php">Perfil</a></button>
-                        </li>
-
-                    </ul>
-                    <?php
-                } ?>
+                </ul>
 
             </div>
         </div>
@@ -62,7 +77,7 @@ if (isset($_SESSION["user"])) {
     <main>
         <div class='div-destaque'>
             <section class="destaque">
-                <div class="subtitulo">
+                <div class=<?php echo "subtitulo" . $mode ?>>
                     <h2>PERFIL</h2>
                 </div>
             </section>
@@ -70,12 +85,14 @@ if (isset($_SESSION["user"])) {
         <div class='div-destaque'>
             <section class="dados-subtitulo">
                 <div>
-                    <h2><!-- ?php
+                    <h2>
+                        <!-- ?php
                         echo $user
-                    ? --> user</h2>
+                    ? --> user
+                    </h2>
                 </div>
                 <br>
-                <div class= "dados">
+                <div class="dados">
                     <p><b>Nome:</b></p><br>
                     <p><b>Turma:</b></p><br>
                     <p><b>Escola:</b></p><br>
@@ -89,7 +106,7 @@ if (isset($_SESSION["user"])) {
         </div>
     </main>
 
-    <footer class= 'footer'>
+    <footer class='footer'>
         <p>&copy;
             <?php echo date("Y"); ?> VetMemories
         </p>

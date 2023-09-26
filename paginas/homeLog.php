@@ -3,11 +3,14 @@ session_start();
 if (!empty($_GET["acao"])) {
     if ($_GET["acao"] == "dark") {
         if (empty($_COOKIE["mode"])) {
-            setcookie("mode", "dark", time() + 60, "/");
+            setcookie("mode", "dark", time() + 6000000, "/");
+            header("location:homeLog.php");
         } elseif ($_COOKIE["mode"] == "dark") {
-            setcookie("mode", "light", time() + 60, "/");
+            setcookie("mode", "light", time() + 60000000, "/");
+            header("location:homeLog.php");
         } else {
-            setcookie("mode", "dark", time() + 60, "/");
+            setcookie("mode", "dark", time() + 6000000, "/");
+            header("location:homeLog.php");
         }
     } else {
         session_destroy();
