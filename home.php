@@ -23,8 +23,7 @@
                     <li class='elemento'><button class='botao-menu'><a href="login.php">Login</a></button></li>
                 </ul>
             </div>  
-    </div>
-       
+        </div>
      
     </header>
     
@@ -33,12 +32,6 @@
         <div class='div-destaque'>
             <section class="destaque">
                
-                <?php
-                // Aqui você pode incluir o código PHP para buscar e exibir a notícia em destaque
-                // Por exemplo: $noticiaDestaque = obterNoticiaDestaque(); // função hipotética
-                // Em seguida, exiba o título, imagem e resumo da notícia em destaque
-                ?>
-
                 <div class='subtitulo'>
                     <h2>CONHEÇA NOSSO SITE</h2>
                 </div>

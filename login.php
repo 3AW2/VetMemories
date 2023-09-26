@@ -29,9 +29,19 @@
 </head>
 
 <header>
-    <div class='titulo'>
-        <h1><a href="home.php">Vet Memories</a></h1>
-    </div>
+  <div class='header'>
+      
+      <div class='titulo'>
+          <h1><a href="home.php" id='logo'>Vet Memories</a></h1>
+          
+          <ul>
+              
+              <li class='elemento'><button class='botao-menu'><a href="cadastro.php">Cadastro</a></button></li>     
+              
+              <li class='elemento'><button class='botao-menu'><a href="login.php">Login</a></button></li>
+          </ul>
+      </div>  
+  </div>
 </header>
 
 <body>
