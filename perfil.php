@@ -8,12 +8,15 @@ class Perfil {
     private $Escola;
     private $User;
 
-    public function __construct($Nome, $AnoEscolar, $Biografia, $Escola) {
-        $this->setNome($Nome) = $Nome;
-        $this->setAnoEscolar($AnoEscolar) = $AnoEscolar;
-        $this->setBiografia($Biografia) = $Biografia;
-        $this->setEscola($Escola) = $Escola;
+    public function __construct($Nome, $AnoEscolar, $Escola, $Email, $Senha, $Biografia='-') {
+        $this->setNome($Nome);
+        $this->setAnoEscolar($AnoEscolar);
+        $this->setEscola($Escola);
+        $this->setUser($Email, $Senha);
+        $this->setBiografia($Biografia);
+
     }
+
 
     public function getNome() {
         return $this->Nome;

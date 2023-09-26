@@ -3,12 +3,6 @@ session_start();
 include "../User.php";
 $erro = "";
 
-$pessoa1 = new User("amanda@gmail.com", "4321");
-$pessoa2 = new User("analu@gmail.com", "1234");
-$pessoa3 = new User("tuco@gmail.com", "abcd");
-
-$usuarios = array($pessoa1, $pessoa2, $pessoa3);
-
 if (isset($_SESSION["user"])) {
   header("location:home.php");
   die();
