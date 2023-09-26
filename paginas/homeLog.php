@@ -3,15 +3,16 @@ session_start();
 if (!empty($_GET["acao"])) {
     if ($_GET["acao"] == "dark") {
         if (empty($_COOKIE["mode"])) {
-            setcookie("mode", "dark", time() + 60, "/");
+            setcookie("mode", "dark", time() + 6000000, "/");
+            header("location:homeLog.php");
         } elseif ($_COOKIE["mode"] == "dark") {
-            setcookie("mode", "light", time() + 60, "/");
+            setcookie("mode", "light", time() + 60000000, "/");
+            header("location:homeLog.php");
         } else {
-            setcookie("mode", "dark", time() + 60, "/");
+            setcookie("mode", "dark", time() + 6000000, "/");
+            header("location:homeLog.php");
         }
-    } else {
-        session_destroy();
-    }
+    } 
 }
 if (isset($_SESSION["user"])) {
     $user = $_SESSION["user"];
@@ -70,7 +71,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["titulo"])) {
                         </li>
 
                         <li class=<?php echo "elemento" . $mode ?>>
-                            <form action="homeLog.php" method="get">
+                            <form action="home.php" method="get">
                                 <button type="submit" name="acao" value="Sair" class=<?php echo "botao-menu" . $mode ?>>Sair</button>
                             </form>
                         </li>
