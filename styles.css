@@ -139,6 +139,44 @@ input[type='text-bio']{
     border: 2px solid purple;
 }
 
+.label-memoria{
+    width: 100%;
+    height: 100%;
+}
+
+input[type='text-modal']{
+    border-radius: 15px;
+    padding:0;
+    width: 90%;
+    height: 100px;
+    text-align: left;
+    border: 2px solid rgb(202, 204, 75);
+    
+}
+
+input[type='text-titulo']{
+    border-radius: 15px;
+    width: 40%;
+    height: 25px;
+    text-align: left;
+    border: 2px solid rgb(202, 204, 75);
+}
+
+.date-memoria-modal{
+    border-radius: 15px;
+    width: 10%;
+    height: 25px;
+    border: 2px solid rgb(202, 204, 75);
+}
+
+
+.date-memoria-fixo{
+    border-radius: 15px;
+    width: 25%;
+    height: 25px;
+    border: 2px solid rgb(202, 204, 75);
+}
+
 .dados{
     padding: 18px 15px;
     background-color: #eaebb7;
@@ -149,6 +187,18 @@ input[type='text-bio']{
     height: 150px;
     box-sizing: border-box;
 }
+
+.dados-fixo{
+    padding: 18px 15px;
+    background-color: #eaebb7;
+    color: rgb(51, 51, 51);
+    text-align: left;
+    width: 100%;
+    box-sizing: content-box;
+    height: 170px;
+    box-sizing: border-box;
+}
+
 #hdados {
     color: #000;
     text-align: initial;
@@ -253,6 +303,7 @@ input[type='text-bio']{
 .botao-modal {
     position: fixed;
     right: 0;
+    bottom: 25px;
     margin-right: 25px;
     float: right;
     font-size: 30px;
@@ -278,9 +329,10 @@ input[type='text-bio']{
     word-wrap: break-word;
 }
 
-.memoriasContainer {
+.memoria1Container {
+    display: inline-flex;
     margin-top: 25px;
-    margin-left: 55px;
+    margin-left: 150px;
 }
 
 .titulo-memorias {

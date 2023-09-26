@@ -78,21 +78,60 @@ if (isset($_SESSION["user"])) {
             </section>
         </div>
 
-        <div class="memoriasContainer">
+        <!-- memória fixa -->
+        <div class="memoria1Container">
             <section class= "section-memorias">
-                <div class="titulo-memorias">
-                    <h2>primeira memóriasla</h2>
+                <div class='section-memorias'>
+                    <section class="dados-subtitulo">
+                        <div>
+                            <h2>Guarde a sua memória</h2>
+                        </div>
+                        <br>
+                        <div class= "dados-fixo">
+                            <label for="memoria" id='label-memoria' class="label-memoria"> <p><b>Título da memória</b></p> <br><input type="text-titulo" id="memoria" name="memoria" required> </label>
+                            <br><br>
+                            <label for="data-memoria" id='label-memoria' class="label-memoria"> <p><b>Data</b></p> <br><input type="date" class="date-memoria-fixo" id="data-memoria" required> </label>
+                            <br><br>
+                        </div>
+                        <br>
+                        <label for="memoria" id='label-memoria' class="label-memoria"><h2><p><b>Como foi</b></p></h2> <br><input type="text-modal" id="memoria" name="memoria" required> </label>
+                        <br><br>    
+                    </section>
+                </div>
+            </section>
+            <section class= "section-memorias">
+                <div class='section-memorias'>
+                    <section class="dados-subtitulo">
+                        <div>
+                            <h2>Guarde a sua memória</h2>
+                        </div>
+                        <br>
+                        <div class= "dados-fixo">
+                            <label for="memoria" id='label-memoria' class="label-memoria"> <p><b>Título da memória</b></p> <br><input type="text-titulo" id="memoria" name="memoria" required> </label>
+                            <br><br>
+                            <label for="data-memoria" id='label-memoria' class="label-memoria"> <p><b>Data</b></p> <br><input type="date" class="date-memoria-fixo" id="data-memoria" required> </label>
+                            <br><br>
+                        </div>
+                        <br>
+                        <label for="memoria" id='label-memoria' class="label-memoria"><h2><p><b>Como foi</b></p></h2> <br><input type="text-modal" id="memoria" name="memoria" required> </label>
+                        <br><br>    
+                    </section>
                 </div>
             </section>
         </div>
 
+        <!-- modal -->
         <div id="myModal" class="modal" aria-modal="true" role="dialog">
             <div class="modal-content">
                 <button class="close" aria-label="Fechar modal">&times;</button>
                 <form id="memoriaForm">
                     <h2><label for="memoria">Guarde a sua memória</label></h2>
                     <br><br>
-                    <label for="memoria" id='label-memoria'><input type="text" id="memoria" name="memoria" required> </label>
+                    <label for="memoria" id='label-memoria'> <p><b>Título da memória</b></p> <br><input type="text-titulo" id="memoria" name="memoria" required> </label>
+                    <br><br>
+                    <label for="data-memoria" id='label-memoria'> <p><b>Data</b></p> <br><input type="date" class="date-memoria-modal" id="data-memoria" required> </label>
+                    <br><br>
+                    <label for="memoria" id='label-memoria'><p><b>Como foi</b></p> <br><input type="text-modal" id="memoria" name="memoria" required> </label>
                     <br><br>
                     <button type="submit" class='botao-salvar'>Salvar</button>
                 </form>
