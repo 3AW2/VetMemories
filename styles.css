@@ -115,6 +115,14 @@
     width: 85%;
     text-align: justify;
     font-size: 24px;
+    color: #000;
+}
+
+.texto-dark {
+    width: 85%;
+    text-align: justify;
+    font-size: 24px;
+    color: whitesmoke;
 }
 
 .caixa-criadores {
@@ -132,6 +140,19 @@
 .itens-img-legenda img{
     width: 120px;
     margin: 3vh;
+}
+
+.itens-img-legenda p{
+    color: #000;
+}
+
+.itens-img-legenda-dark img{
+    width: 120px;
+    margin: 3vh;
+}
+
+.itens-img-legenda-dark p{
+    color: whitesmoke;
 }
 
 .foto-perfil{

@@ -1,10 +1,32 @@
 <?php
 session_start();
 if (!empty($_GET["acao"])) {
-    session_destroy();
+    if ($_GET["acao"] == "dark") {
+        if (empty($_COOKIE["mode"])) {
+            setcookie("mode", "dark", time() + 60000000, "/");
+            header("location:home.php");
+        } elseif ($_COOKIE["mode"] == "dark") {
+            setcookie("mode", "light", time() + 6000000, "/");
+            header("location:home.php");
+        } else {
+            setcookie("mode", "dark", time() + 60000000, "/");
+            header("location:home.php");
+        }
+    } else {
+        session_destroy();
+    }
 }
 if (isset($_SESSION["user"])) {
     $user = $_SESSION["user"];
+    $refLogo = "homeLog.php";
+} else {
+    $refLogo = "home.php";
+}
+
+if (!empty($_COOKIE["mode"]) && $_COOKIE["mode"] == "dark") {
+    $mode = "-dark";
+} else {
+    $mode = "";
 }
 ?>
 
@@ -15,42 +37,54 @@ if (isset($_SESSION["user"])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VetMemories</title>
-    <link rel="stylesheet" href="../styles.css"> 
+    <link rel="stylesheet" href="../styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200;400&family=Schoolbell&display=swap"
         rel="stylesheet">
 </head>
 
-<body class="body">
+<body class=<?php echo "body" . $mode ?>>
     <header>
 
         <div class='header'>
-            <div class='titulo'>
-                <h1><a href="home.php" id='logo'>Vet Memories</a></h1>
+            <div class=<?php echo "titulo" . $mode ?>>
+                <h1><a href=<?php echo $refLogo ?> id='logo'>Vet Memories</a></h1>
                 <?php
                 if (!isset($_SESSION["user"])) { ?>
-
                     <ul>
-                        <li class='elemento'><button class='botao-menu'><a href="./cadastro.php">Cadastro</a></button></li>
+                        <li class=<?php echo "elemento" . $mode ?>>
+                            <form action="home.php" method="get">
+                                <button type="submit" name="acao" value="dark" class=<?php echo "botao-menu" . $mode ?>>
+                                    <img src="../imagens/night-mode.png" style="max-width: 2vw;"> </button>
+                            </form>
+                        </li>
 
-                        <li class='elemento'><button class='botao-menu'><a href="./login.php">Login</a></button></li>
+                        <li class=<?php echo "elemento" . $mode ?>><button class=<?php echo "botao-menu" . $mode ?>><a
+                                    href="./cadastro.php">Cadastro</a></button></li>
+
+                        <li class=<?php echo "elemento" . $mode ?>><button class=<?php echo "botao-menu" . $mode ?>><a
+                                    href="./login.php">Login</a></button></li>
                     </ul>
 
                     <?php
                 } else { ?>
                     <ul>
-                        <li>
-                            <button class="botao-menu"><img src="../imagens/night-mode"></button>
-                        </li>
-
-                        <li class='elemento'>
-                            <form action="home.php" method="get">
-                                <button type="submit" name="acao" value="Sair" class='botao-menu'>Sair</button>
+                        <li class=<?php echo "elemento" . $mode ?>>
+                            <form action="homeLog.php" method="get">
+                                <button type="submit" name="acao" value="dark" class=<?php echo "botao-menu" . $mode ?>>
+                                    <img src="../imagens/night-mode.png" style="max-width: 2vw;"> </button>
                             </form>
                         </li>
 
-                        <li class='elemento'><button class='botao-menu'><a href="perfil.php">Perfil</a></button>
+                        <li class=<?php echo "elemento" . $mode ?>>
+                            <form action="home.php" method="get">
+                                <button type="submit" name="acao" value="Sair" class=<?php echo "botao-menu" . $mode ?>>Sair</button>
+                            </form>
+                        </li>
+
+                        <li class=<?php echo "elemento" . $mode ?>><button class=<?php echo "botao-menu" . $mode ?>><a
+                                    href="perfil.php">Perfil</a></button>
                         </li>
 
                     </ul>
@@ -69,13 +103,13 @@ if (isset($_SESSION["user"])) {
         <div class='div-destaque'>
             <section class="destaque">
 
-                <div class='subtitulo'>
+                <div class=<?php echo "subtitulo" . $mode ?>>
                     <h2>CONHEÇA NOSSO SITE</h2>
                 </div>
 
                 <div class='caixa'>
 
-                    <div class='texto'>
+                    <div class=<?php echo "texto" . $mode ?>>
                         <p>O Vet Memories foi criado com o intuito de que você possa guardar as suas memórias de
                             veterano. Se o IF é é um espaço que permite construir diversas lembranças, porque não
                             guardá-las com carinho digitalmente? </p>
@@ -85,13 +119,13 @@ if (isset($_SESSION["user"])) {
 
                 </div>
 
-                <div class='subtitulo' id='texto-nos'>
+                <div class=<?php echo "subtitulo" . $mode ?> id='texto-nos'>
                     <h2>QUEM NÓS SOMOS?</h2>
                 </div>
 
                 <div class='caixa'>
 
-                    <div class='texto'>
+                    <div class=<?php echo "texto" . $mode ?>>
                         <p> Somos estudantes do 4° ano do curso Técnico de Informática Integrado ao Ensino Médio.
                             Criamos esse projeto a fim de elaborar uma ferramenta que possa registrar os momentos que
                             compõem nossos laços de amizade 🤗! Assim, a nossa equipe é formada pelos integrantes:</p>
@@ -103,17 +137,17 @@ if (isset($_SESSION["user"])) {
 
                 <div class='caixa-criadores'>
 
-                    <div class='itens-img-legenda'>
+                    <div class=<?php echo "itens-img-legenda" . $mode ?>>
                         <img src="..\imagens\amandinha.png" alt="Foto da criadora Amanda">
                         <p>Amanda Maria</p>
                     </div>
 
-                    <div class='itens-img-legenda'>
+                    <div class=<?php echo "itens-img-legenda" . $mode ?>>
                         <img src="..\imagens\analu.png" alt="Foto da criadora Ana Luisa">
                         <p>Ana Luisa</p>
                     </div>
 
-                    <div class='itens-img-legenda'>
+                    <div class=<?php echo "itens-img-legenda" . $mode ?>>
                         <img src="..\imagens\arthur.png" alt="Foto do criador Arthur">
                         <p>Arthur de Melo</p>
                     </div>
@@ -124,17 +158,12 @@ if (isset($_SESSION["user"])) {
 
         </div>
 
-
-        <!-- <h2>Mais vantagens do nosso site</h2> -->
-        <?php
-        // Sla bota oq quiser aqui
-        ?>
         </section>
         </div>
 
     </main>
 
-    <footer class= 'footer'>
+    <footer class='footer'>
         <p>&copy;
             <?php echo date("Y"); ?> VetMemories
         </p>
