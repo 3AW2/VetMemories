@@ -12,8 +12,6 @@ if (!empty($_GET["acao"])) {
             setcookie("mode", "dark", time() + 60000000, "/");
             header("location:perfil.php");
         }
-    } else {
-        session_destroy();
     }
 }
 if (isset($_SESSION["user"])) {
@@ -55,7 +53,7 @@ if (!empty($_COOKIE["mode"]) && $_COOKIE["mode"] == "dark") {
                     </li>
 
                     <li class=<?php echo "elemento" . $mode ?>>
-                        <form action="homeLog.php" method="get">
+                        <form action="home.php" method="get">
                             <button type="submit" name="acao" value="Sair" class=<?php echo "botao-menu" . $mode ?>>Sair</button>
                         </form>
                     </li>
