@@ -196,6 +196,18 @@
     border: 3px solid rgba(255, 255, 255, 0.622); 
 }
 
+.dados-subtitulo-dark {
+    display: inline-block;
+    margin: 0 auto;
+    padding-top: 10px;
+    width: 450px;
+    border-radius: 30px;
+    background-color: #604372;
+    color: whitesmoke;
+    text-align: center;
+    border: 3px solid rgba(255, 255, 255, 0.622); 
+}
+
 input[type='text-bio']{
     border-radius: 15px;
     padding: 18px 15px;

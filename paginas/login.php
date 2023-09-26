@@ -3,6 +3,21 @@ session_start();
 include "../User.php";
 $erro = "";
 
+if (!empty($_GET["acao"])) {
+  if ($_GET["acao"] == "dark") {
+    if (empty($_COOKIE["mode"])) {
+      setcookie("mode", "dark", time() + 60000000, "/");
+      header("location:login.php");
+    } elseif ($_COOKIE["mode"] == "dark") {
+      setcookie("mode", "light", time() + 6000000, "/");
+      header("location:login.php");
+    } else {
+      setcookie("mode", "dark", time() + 60000000, "/");
+      header("location:login.php");
+    }
+  }
+}
+
 $pessoa1 = new User("amanda@gmail.com", "4321");
 $pessoa2 = new User("analu@gmail.com", "1234");
 $pessoa3 = new User("tuco@gmail.com", "abcd");
@@ -28,6 +43,12 @@ if (isset($_SESSION["user"])) {
 
   }
 }
+
+if (!empty($_COOKIE["mode"]) && $_COOKIE["mode"] == "dark") {
+  $mode = "-dark";
+} else {
+  $mode = "";
+}
 ?>
 
 <!DOCTYPE html>
@@ -47,51 +68,64 @@ if (isset($_SESSION["user"])) {
 <header>
   <div class='header'>
 
-    <div class='titulo'>
+    <div class=<?php echo "titulo" . $mode ?>>
       <h1><a href="home.php" id='logo'>Vet Memories</a></h1>
 
       <ul>
+        <li class=<?php echo "elemento" . $mode ?>>
+          <form action="login.php" method="get">
+            <button type="submit" name="acao" value="dark" class=<?php echo "botao-menu" . $mode ?>>
+              <img src="../imagens/night-mode.png" style="max-width: 2vw;"> </button>
+          </form>
+        </li>
 
-        <li class='elemento'><button class='botao-menu'><a href="cadastro.php">Cadastro</a></button></li>
+        <li class=<?php echo "elemento" . $mode ?>><button class=<?php echo "botao-menu" . $mode ?>><a
+              href="cadastro.php">Cadastro</a></button></li>
 
-        <li class='elemento'><button class='botao-menu'><a href="login.php">Login</a></button></li>
+        <li class=<?php echo "elemento" . $mode ?>><button class=<?php echo "botao-menu" . $mode ?>><a
+              href="login.php">Login</a></button></li>
       </ul>
     </div>
   </div>
 </header>
 
-<body>
-<div class='div-destaque'>
+<body class=<?php echo "body" . $mode ?>>
+  <div class='div-destaque'>
   </div>
   <div class='div-destaque'>
-      <section class="dados-subtitulo">
-          <div>
-            <h1>Faça seu login no VetMemories</h1>
-          </div>
+    <section class=<?php echo "dados-subtitulo" . $mode ?>>
+      <div>
+        <h1 class=<?php echo "texto" . $mode ?>>Faça seu login no VetMemories</h1>
+      </div>
+      <br>
+      <div class="dados">
+        <br>
+        <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+          <p><b><label for="email">Email:</label></b>
+            <input type="text" id="email" name="email" required>
+          </p>
           <br>
-          <div class= "dados">
-            <br>
-            <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-            <p><b><label for="email">Email:</label></b>
-            <input type="text" id="email" name="email" required></p>
-            <br>
-            <p><b><label for="password">Senha:</label></b>
-            <input type="password" id="password" name="password" required></p>
-            <p class="alert"><?php echo $erro ?> </p>
-            <br>
-            <button type="submit" class="botao-menu">Entrar</button>
-          </div><br>
-          <div>
-          </form>
-            <p>Não tem cadastro? 
-            <a href="cadastro.php">Cadastre-se</a> </p>
-          </div><br><br>
-      </section>
+          <p><b><label for="password">Senha:</label></b>
+            <input type="password" id="password" name="password" required>
+          </p>
+          <p class="alert">
+            <?php echo $erro ?>
+          </p>
+          <br>
+          <button type="submit" class="botao-menu">Entrar</button>
+      </div><br>
+      <div>
+        </form>
+        <p>Não tem cadastro?
+          <a href="cadastro.php">Cadastre-se</a>
+        </p>
+      </div><br><br>
+    </section>
   </div>
   <div class="container">
-    
-    
-    
+
+
+
   </div>
 </body>
 
