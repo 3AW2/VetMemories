@@ -11,22 +11,23 @@
 </head>
 <body>
     <header>
-        <div class='header'>
-            
-            <div class='titulo'>
-                <h1><a href="home.php" id='logo'>Vet Memories</a></h1>
-                
-                <ul>
-                    
-                    <li class='elemento'><button class='botao-menu'><a href="cadastro.php">Cadastro</a></button></li>     
-                    
-                    <li class='elemento'><button class='botao-menu'><a href="login.php">Login</a></button></li>
-                </ul>
-            </div>  
-    </div>
-       
-     
+        <div class='titulo'>
+            <h1><a href="home.php">Vet Memories</a></h1>
+        </div>
+        
     </header>
+
+    <div class="menu-lateral">
+        <ul>
+            <li><a href="#">Página Inicial</a></li>
+            <li><a href="#">Sobre Nós</a></li>
+            <li><a href="#">Serviços</a></li>
+            <li><a href="#">Contato</a></li>
+        </ul>
+    </div>
+    <div class="conteudo">
+        <!-- Conteúdo da página aqui -->
+    </div>
     
     
     <main>

@@ -8,18 +8,30 @@ body{
     background-color: #bde0fe;
 }
 
+.header{
+    display: flex;
+}
+
 .titulo{
     background-color: #92bde5;
-    padding: 1.5%;
-    margin-bottom: 2%;
-    border-bottom: 3px solid #6d90b0; 
+    padding: 1%;
+    border-bottom: 3px solid rgba(255, 255, 255, 0.588); 
+    width: 100%;
+    height: auto;
+}
+
+.titulo #logo{
+    text-decoration: none;
+    color: whitesmoke;
+    font-family: 'Schoolbell', cursive;
 }
 
 .titulo h1{
     text-align: center;
-    font-family: 'Schoolbell', cursive;
+    align-items: center;
     font-size: 45px;
-    color: whitesmoke;
+    width: auto;
+    height: 0;
 }
 
 .menu{
@@ -59,4 +71,79 @@ body{
     text-align: center;
 }
 
+.caixa{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 0 0 10px;
+}
 
+.texto {
+    width: 85%;
+    text-align: justify;
+    font-size: 24px;
+}
+
+.caixa-criadores {
+    display: flex;
+    justify-content: center;
+}
+
+.destacar-texto{
+    font-size: 30px;
+    font-weight: bold;
+    margin: 10px;
+    text-align: center;
+}
+
+.itens-img-legenda img{
+    width: 120px;
+    margin: 3vh;
+}
+
+.subtitulo{
+    display: inline-block;
+    margin: 0 auto;
+    padding: 20px;
+    width: 450px;
+    border-radius: 30px;
+    background-color: #d19ef1;
+    color: whitesmoke;
+    text-align: center;
+    border: 3px solid rgba(255, 255, 255, 0.622); 
+    
+}
+
+#texto-nos{
+    margin-top: 4%;
+}
+
+.menu-lateral {
+    width: 250px;
+    height: 100%;
+    background-color: #333;
+    color: #fff;
+    position: fixed;
+}
+
+.menu-lateral ul {
+    list-style: none;
+    padding: 0;
+}
+
+.menu-lateral ul li {
+    padding: 10px;
+    text-align: center;
+}
+
+.menu-lateral ul li a {
+    text-decoration: none;
+    color: #fff;
+    display: block;
+}
+
+/* Estilize o conteúdo principal */
+.conteudo {
+    margin-left: 250px; /* Ajuste a margem para dar espaço ao menu-lateral lateral */
+    padding: 20px;
+}
