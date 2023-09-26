@@ -1,5 +1,13 @@
+<?php
+session_start();
+if (isset($_SESSION["user"])) {
+    $user = $_SESSION["user"];
+}
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,27 +15,48 @@
     <link rel="stylesheet" href="styles.css"> <!-- Adicione seu arquivo CSS aqui -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200;400&family=Schoolbell&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200;400&family=Schoolbell&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
     <header>
-        <div class='header'>
-            
-            <div class='titulo'>
-                <h1><a href="home.php" id='logo'>Vet Memories</a></h1>
-                
+        
+            <?php
+            if (!isset($_SESSION["user"])) {
+
+                ?>
+                <div class='header'>
+                    <div class='titulo'>
+                        <h1><a href="home.php" id='logo'>Vet Memories</a></h1>
+                        <ul>
+                            
+                            <li class='elemento'><button class='botao-menu'><a href="cadastro.php">Cadastro</a></button></li>     
+                            
+                            <li class='elemento'><button class='botao-menu'><a href="login.php">Login</a></button></li>
+
+                        </ul>
+                    </div>
+                </div>
+            <?php
+            } else {
+
+                ?>
                 <ul>
-                    
-                    <li class='elemento'><button class='botao-menu'><a href="cadastro.php">Cadastro</a></button></li>     
-                    
-                    <li class='elemento'><button class='botao-menu'><a href="login.php">Login</a></button></li>
+
+                    <li class='elemento'><button class='botao-menu'><a href="paginas/memorias.php">Memorias</a></button></li>
+
+                    <li class='elemento'><button class='botao-menu'><a href="paginas/perfil.php">Perfil</a></button></li>
                 </ul>
-            </div>  
+                <?php
+            }
+            ?>
+
         </div>
      
     </header>
-    
-    
+
+
     <main>
         <div class='div-destaque'>
             <section class="destaque">
@@ -94,7 +123,10 @@
     </main>
 
     <footer>
-        <p>&copy; <?php echo date("Y"); ?> VetMemories</p>
+        <p>&copy;
+            <?php echo date("Y"); ?> VetMemories
+        </p>
     </footer>
 </body>
+
 </html>
