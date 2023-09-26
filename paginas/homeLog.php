@@ -29,6 +29,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["titulo"])) {
     $data = $_POST["data"];
     $comoFoi = $_POST["comoFoi"];
 }
+$titulo = isset($_POST["titulo"]) ? $_POST["titulo"] : "";
+$data = isset($_POST["data"]) ? $_POST["data"] : "";
+$comoFoi = isset($_POST["comoFoi"]) ? $_POST["comoFoi"] : "";
 ?>
 
 <!DOCTYPE html>
@@ -109,15 +112,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["titulo"])) {
         <div class="memoria1Container">
             <div class='section-memorias'>
                 <section class="dados-subtitulo">
-                    <div>
-                    <h2><p><b><?php echo $titulo;?></b></p></h2> 
+                    <div><h2><p><b><?php
+                    if ($titulo == null) {
+                        echo "Adicione uma memória";
+                    }
+                    else{
+                    echo $titulo;
+                    }?></b></p></h2> 
                     </div>
                     <br><br>
-                    <div text-align= left>
-                    <h3><p><b><?php echo $data;?></b></p></h3> 
-                    </div>
+                    <h3><p><b><?php
+                    if ($titulo == null) {
+                        echo " ";
+                    }
+                    else{
+                    echo $titulo;
+                    }?></b></p></h3> 
                     <br><br>
-                    <h3><p><b><?php echo $comoFoi;?></b></p></h3> 
+                    <h3><p><b><?php
+                    if ($titulo == null) {
+                        echo " ";
+                    }
+                    else{
+                    echo $titulo;
+                    }?></b></p></h3> 
                     <br><br>    
                 </section>
             </div>
@@ -144,11 +162,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["titulo"])) {
                 <form id="memoriaForm" method="post" action="">
                     <h2><label for="titulo">Guarde a sua memória</label></h2>
                     <br><br>
-                    <label for="titulo" id='label-memoria'> <p><b>Título da memória</b></p> <br><input type="text" id="titulo" name="titulo" required> </label>
+                    <label for="titulo" id='label-memoria'> <p><b>Título da memória</b></p> <br><input type="text-titulo" id="titulo" name="titulo" required> </label>
                     <br><br>
                     <label for="data" id='label-memoria'> <p><b>Data</b></p> <br><input type="date" class="date-memoria-modal" id="data" name="data" required> </label>
                     <br><br>
-                    <label for="comoFoi" id='label-memoria'><p><b>Como foi</b></p> <br><input type="text" id="comoFoi" name="comoFoi" required> </label>
+                    <label for="comoFoi" id='label-memoria'><p><b>Como foi</b></p> <br><input type="text-modal" id="comoFoi" name="comoFoi" class="text-modal" required> </label>
                     <br><br>
                     <button type="submit" class='botao-salvar'>Salvar</button>
                 </form>
