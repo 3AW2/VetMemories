@@ -4,8 +4,12 @@
     font-family: 'Josefin Sans', sans-serif;
 }
 
-body{
+.body{
     background-color: #bde0fe;
+}
+
+.body-dark{
+    background-color: #354452;
 }
 
 .header{
@@ -63,6 +67,21 @@ body{
 }
 
 .botao-menu:hover {
+    background-color: #92bde5;
+}
+
+.botao-menu-dark {
+    font-size: 20px;
+    padding: 7px 15px;
+    background-color: #233f4b; 
+    border-radius: 10px;
+    color: #fff; 
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.5s; 
+}
+
+.botao-menu-dark:hover {
     background-color: #92bde5;
 }
 

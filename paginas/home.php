@@ -40,6 +40,9 @@ if (isset($_SESSION["user"])) {
                     <?php
                 } else { ?>
                     <ul>
+                        <li>
+                            <button class="botao-menu"><img src="../imagens/night-mode"></button>
+                        </li>
 
                         <li class='elemento'>
                             <form action="home.php" method="get">
