@@ -92,8 +92,6 @@ if (!empty($_COOKIE["mode"]) && $_COOKIE["mode"] == "dark") {
                     <h2>MINHAS MEMÓRIAS</h2>
                 </div>
                 <br>
-
-
                 <div>
                     <button id="openModal" class="botao-modal">+</button>
                 </div>
