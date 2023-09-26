@@ -3,15 +3,16 @@ session_start();
 if (!empty($_GET["acao"])) {
     if ($_GET["acao"] == "dark") {
         if (empty($_COOKIE["mode"])) {
-            setcookie("mode", "dark", time() + 60, "/");
+            setcookie("mode", "dark", time() + 6000000, "/");
+            header("location:homeLog.php");
         } elseif ($_COOKIE["mode"] == "dark") {
-            setcookie("mode", "light", time() + 60, "/");
+            setcookie("mode", "light", time() + 60000000, "/");
+            header("location:homeLog.php");
         } else {
-            setcookie("mode", "dark", time() + 60, "/");
+            setcookie("mode", "dark", time() + 6000000, "/");
+            header("location:homeLog.php");
         }
-    } else {
-        session_destroy();
-    }
+    } 
 }
 if (isset($_SESSION["user"])) {
     $user = $_SESSION["user"];
@@ -22,6 +23,15 @@ if (!empty($_COOKIE["mode"]) && $_COOKIE["mode"] == "dark") {
 } else {
     $mode = "";
 }
+
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["titulo"])) {
+    $titulo = $_POST["titulo"];
+    $data = $_POST["data"];
+    $comoFoi = $_POST["comoFoi"];
+}
+$titulo = isset($_POST["titulo"]) ? $_POST["titulo"] : "";
+$data = isset($_POST["data"]) ? $_POST["data"] : "";
+$comoFoi = isset($_POST["comoFoi"]) ? $_POST["comoFoi"] : "";
 ?>
 
 <!DOCTYPE html>
@@ -42,7 +52,7 @@ if (!empty($_COOKIE["mode"]) && $_COOKIE["mode"] == "dark") {
     <header>
 
         <div class='header'>
-            <div class='titulo'>
+            <div class=<?php echo "titulo" . $mode ?>>
                 <h1><a href="homeLog.php" id='logo'>Vet Memories</a></h1>
                 <?php
                 if (!isset($_SESSION["user"])) { ?>
@@ -56,20 +66,20 @@ if (!empty($_COOKIE["mode"]) && $_COOKIE["mode"] == "dark") {
                     <?php
                 } else { ?>
                     <ul>
-                        <li class="elemento">
+                        <li class=<?php echo "elemento" . $mode ?>>
                             <form action="homeLog.php" method="get">
                                 <button type="submit" name="acao" value="dark" class=<?php echo "botao-menu" . $mode ?>>
                                     <img src="../imagens/night-mode.png" style="max-width: 2vw;"> </button>
                             </form>
                         </li>
 
-                        <li class='elemento'>
-                            <form action="homeLog.php" method="get">
+                        <li class=<?php echo "elemento" . $mode ?>>
+                            <form action="home.php" method="get">
                                 <button type="submit" name="acao" value="Sair" class=<?php echo "botao-menu" . $mode ?>>Sair</button>
                             </form>
                         </li>
 
-                        <li class='elemento'><button class=<?php echo "botao-menu" . $mode ?>><a href="perfil.php">Perfil</a></button>
+                        <li class=<?php echo "elemento" . $mode ?>><button class=<?php echo "botao-menu" . $mode ?>><a href="perfil.php">Perfil</a></button>
                         </li>
 
                     </ul>
@@ -88,7 +98,7 @@ if (!empty($_COOKIE["mode"]) && $_COOKIE["mode"] == "dark") {
         <div class='div-destaque'>
             <section class="destaque">
 
-                <div class='subtitulo'>
+                <div class=<?php echo "subtitulo" . $mode ?>>
                     <h2>MINHAS MEMÓRIAS</h2>
                 </div>
                 <br>
@@ -98,30 +108,71 @@ if (!empty($_COOKIE["mode"]) && $_COOKIE["mode"] == "dark") {
             </section>
         </div>
 
-        <div class="memoriasContainer">
-            <section class="section-memorias">
-                <div class="titulo-memorias">
-                    <h2>primeira memóriasla</h2>
-                </div>
-            </section>
+        <!-- memória fixa -->
+        <div class="memoria1Container">
+            <div class='section-memorias'>
+                <section class="dados-subtitulo">
+                    <div><h2><p><b><?php
+                    if ($titulo == null) {
+                        echo "Adicione uma memória";
+                    }
+                    else{
+                    echo $titulo;
+                    }?></b></p></h2> 
+                    </div>
+                    <br><br>
+                    <h3><p><b><?php
+                    if ($titulo == null) {
+                        echo " ";
+                    }
+                    else{
+                    echo $titulo;
+                    }?></b></p></h3> 
+                    <br><br>
+                    <h3><p><b><?php
+                    if ($titulo == null) {
+                        echo " ";
+                    }
+                    else{
+                    echo $titulo;
+                    }?></b></p></h3> 
+                    <br><br>    
+                </section>
+            </div>
+            <div class='section-memorias'>
+            <section class="dados-subtitulo">
+                    <div>
+                        <h2><p><b>Titulo</b></p></h2>
+                    </div>
+                    <br><br>
+                    <div text-align= left>
+                        <h3><p><b>Data</b></p></h3>
+                    </div>
+                    <br><br>
+                    <h3><p><b>Como foi</b></p></h3> 
+                    <br><br>    
+                </section>  
+            </div>
         </div>
 
+        <!-- modal -->
         <div id="myModal" class="modal" aria-modal="true" role="dialog">
             <div class="modal-content">
                 <button class="close" aria-label="Fechar modal">&times;</button>
-                <form id="memoriaForm">
-                    <h2><label for="memoria">Guarde a sua memória</label></h2>
+                <form id="memoriaForm" method="post" action="">
+                    <h2><label for="titulo">Guarde a sua memória</label></h2>
                     <br><br>
-                    <label for="memoria" id='label-memoria'><input type="text" id="memoria" name="memoria" required>
-                    </label>
+                    <label for="titulo" id='label-memoria'> <p><b>Título da memória</b></p> <br><input type="text-titulo" id="titulo" name="titulo" required> </label>
+                    <br><br>
+                    <label for="data" id='label-memoria'> <p><b>Data</b></p> <br><input type="date" class="date-memoria-modal" id="data" name="data" required> </label>
+                    <br><br>
+                    <label for="comoFoi" id='label-memoria'><p><b>Como foi</b></p> <br><input type="text-modal" id="comoFoi" name="comoFoi" class="text-modal" required> </label>
                     <br><br>
                     <button type="submit" class='botao-salvar'>Salvar</button>
                 </form>
             </div>
         </div>
-
         <?php
-
         ?>
     </main>
 

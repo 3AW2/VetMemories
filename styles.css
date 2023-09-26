@@ -24,13 +24,21 @@
     height: auto;
 }
 
-.titulo #logo{
+.titulo-dark{
+    background-color: #17222c;
+    padding: 1%;
+    border-bottom: 3px solid rgba(255, 255, 255, 0.588); 
+    width: 100%;
+    height: auto;
+}
+
+.titulo #logo, .titulo-dark #logo{
     text-decoration: none;
     color: whitesmoke;
     font-family: 'Schoolbell', cursive;
 }
 
-.titulo h1{
+.titulo h1, .titulo-dark h1{
     text-align: center;
     align-items: center;
     font-size: 45px;
@@ -43,7 +51,7 @@
     margin-right: 3%;
 }
 
-.elemento{
+.elemento, .elemento-dark{
     display: inline;
     margin: 10px;
     float: right;
@@ -55,12 +63,18 @@
     
 }
 
+.elemento-dark a{
+    color: whitesmoke;
+    text-decoration: none;
+    
+}
+
 .botao-menu {
     font-size: 20px;
     padding: 7px 15px;
     background-color: #a2d2ff; 
     border-radius: 10px;
-    color: #fff; 
+    color: rgb(0, 0, 0); 
     border: none;
     cursor: pointer;
     transition: background-color 0.5s; 
@@ -101,6 +115,14 @@
     width: 85%;
     text-align: justify;
     font-size: 24px;
+    color: #000;
+}
+
+.texto-dark {
+    width: 85%;
+    text-align: justify;
+    font-size: 24px;
+    color: whitesmoke;
 }
 
 .caixa-criadores {
@@ -120,6 +142,19 @@
     margin: 3vh;
 }
 
+.itens-img-legenda p{
+    color: #000;
+}
+
+.itens-img-legenda-dark img{
+    width: 120px;
+    margin: 3vh;
+}
+
+.itens-img-legenda-dark p{
+    color: whitesmoke;
+}
+
 .foto-perfil{
     width: 120px;
     margin: 3vh;
@@ -132,6 +167,18 @@
     width: 450px;
     border-radius: 30px;
     background-color: #d19ef1;
+    color: whitesmoke;
+    text-align: center;
+    border: 3px solid rgba(255, 255, 255, 0.622); 
+}
+
+.subtitulo-dark{
+    display: inline-block;
+    margin: 0 auto;
+    padding: 20px;
+    width: 450px;
+    border-radius: 30px;
+    background-color: #723f92;
     color: whitesmoke;
     text-align: center;
     border: 3px solid rgba(255, 255, 255, 0.622); 
@@ -158,6 +205,44 @@ input[type='text-bio']{
     border: 2px solid purple;
 }
 
+.label-memoria{
+    width: 100%;
+    height: 100%;
+}
+
+input[type='text-modal']{
+    border-radius: 15px;
+    padding:0;
+    width: 90%;
+    height: 100px;
+    text-align: left;
+    border: 2px solid rgb(202, 204, 75);
+    
+}
+
+input[type='text-titulo']{
+    border-radius: 15px;
+    width: 40%;
+    height: 25px;
+    text-align: left;
+    border: 2px solid rgb(202, 204, 75);
+}
+
+.date-memoria-modal{
+    border-radius: 15px;
+    width: 10%;
+    height: 25px;
+    border: 2px solid rgb(202, 204, 75);
+}
+
+
+.date-memoria-fixo{
+    border-radius: 15px;
+    width: 25%;
+    height: 25px;
+    border: 2px solid rgb(202, 204, 75);
+}
+
 .dados{
     padding: 18px 15px;
     background-color: #eaebb7;
@@ -168,6 +253,18 @@ input[type='text-bio']{
     height: 150px;
     box-sizing: border-box;
 }
+
+.dados-fixo{
+    padding: 18px 15px;
+    background-color: #eaebb7;
+    color: rgb(51, 51, 51);
+    text-align: left;
+    width: 100%;
+    box-sizing: content-box;
+    height: 170px;
+    box-sizing: border-box;
+}
+
 #hdados {
     color: #000;
     text-align: initial;
@@ -272,6 +369,7 @@ input[type='text-bio']{
 .botao-modal {
     position: fixed;
     right: 0;
+    bottom: 25px;
     margin-right: 25px;
     float: right;
     font-size: 30px;
@@ -297,9 +395,10 @@ input[type='text-bio']{
     word-wrap: break-word;
 }
 
-.memoriasContainer {
+.memoria1Container {
+    display: inline-flex;
     margin-top: 25px;
-    margin-left: 55px;
+    margin-left: 150px;
 }
 
 .titulo-memorias {
@@ -327,4 +426,9 @@ input[type='text-bio']{
 .footer {
     margin-top: 100%;
     text-align: center;
+}
+
+h3{
+    text-align: left;
+    padding-left: 40px;
 }
