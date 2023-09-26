@@ -19,7 +19,7 @@ if (isset($_SESSION["user"])) {
     foreach ($usuarios as $u) {
       if ($user->equals($u)) {
         $_SESSION["user"] = $user;
-        header("location:home.php");
+        header("location:homeLog.php");
         die();
       }
     }

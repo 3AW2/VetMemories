@@ -72,7 +72,7 @@ if (isset($_SESSION["user"])) {
 
     </main>
 
-    <footer>
+    <footer class= 'footer'>
         <p>&copy;
             <?php echo date("Y"); ?> VetMemories
         </p>

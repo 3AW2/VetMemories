@@ -9,7 +9,7 @@
     if($_SERVER["REQUEST_METHOD"] == "POST"){
       $user = new User($_POST["email"], $_POST["password"]);
       $_SESSION["user"] = $user;
-      header("location:home.php");
+      header("location:homeLog.php");
       die();
     }
   }

@@ -19,7 +19,7 @@ if (isset($_SESSION["user"])) {
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200;400&family=Schoolbell&display=swap"
-        rel="stylesheet">
+    rel="stylesheet">
 </head>
 
 <body>
@@ -27,7 +27,7 @@ if (isset($_SESSION["user"])) {
 
         <div class='header'>
             <div class='titulo'>
-                <h1><a href="home.php" id='logo'>Vet Memories</a></h1>
+                <h1><a href="homeLog.php" id='logo'>Vet Memories</a></h1>
                 <?php
                 if (!isset($_SESSION["user"])) { ?>
 
@@ -42,7 +42,7 @@ if (isset($_SESSION["user"])) {
                     <ul>
 
                         <li class='elemento'>
-                            <form action="home.php" method="get">
+                            <form action="homeLog.php" method="get">
                                 <button type="submit" name="acao" value="Sair" class='botao-menu'>Sair</button>
                             </form>
                         </li>
@@ -69,68 +69,41 @@ if (isset($_SESSION["user"])) {
             <section class="destaque">
 
                 <div class='subtitulo'>
-                    <h2>CONHEÇA NOSSO SITE</h2>
+                    <h2>MINHAS MEMÓRIAS</h2>
                 </div>
+                <br>
 
-                <div class='caixa'>
 
-                    <div class='texto'>
-                        <p>O Vet Memories foi criado com o intuito de que você possa guardar as suas memórias de
-                            veterano. Se o IF é é um espaço que permite construir diversas lembranças, porque não
-                            guardá-las com carinho digitalmente? </p>
-
-                        <p class='destacar-texto'>O tempo pode passar, mas memória a gente guarda ❤</p>
-                    </div>
-
+                <div>
+                <button id="openModal" class="botao-modal">+</button>
                 </div>
-
-                <div class='subtitulo' id='texto-nos'>
-                    <h2>QUEM NÓS SOMOS?</h2>
-                </div>
-
-                <div class='caixa'>
-
-                    <div class='texto'>
-                        <p> Somos estudantes do 4° ano do curso Técnico de Informática Integrado ao Ensino Médio.
-                            Criamos esse projeto a fim de elaborar uma ferramenta que possa registrar os momentos que
-                            compõem nossos laços de amizade 🤗! Assim, a nossa equipe é formada pelos integrantes:</p>
-
-                    </div>
-
-                </div>
-
-
-                <div class='caixa-criadores'>
-
-                    <div class='itens-img-legenda'>
-                        <img src="..\imagens\amandinha.png" alt="Foto da criadora Amanda">
-                        <p>Amanda Maria</p>
-                    </div>
-
-                    <div class='itens-img-legenda'>
-                        <img src="..\imagens\analu.png" alt="Foto da criadora Ana Luisa">
-                        <p>Ana Luisa</p>
-                    </div>
-
-                    <div class='itens-img-legenda'>
-                        <img src="..\imagens\arthur.png" alt="Foto do criador Arthur">
-                        <p>Arthur de Melo</p>
-                    </div>
-
-                </div>
-
-
-
+            </section>
         </div>
 
+        <div class="memoriasContainer">
+            <section class= "section-memorias">
+                <div class="titulo-memorias">
+                    <h2>primeira memóriasla</h2>
+                </div>
+            </section>
+        </div>
 
-        <!-- <h2>Mais vantagens do nosso site</h2> -->
+        <div id="myModal" class="modal" aria-modal="true" role="dialog">
+            <div class="modal-content">
+                <button class="close" aria-label="Fechar modal">&times;</button>
+                <form id="memoriaForm">
+                    <h2><label for="memoria">Guarde a sua memória</label></h2>
+                    <br><br>
+                    <label for="memoria" id='label-memoria'><input type="text" id="memoria" name="memoria" required> </label>
+                    <br><br>
+                    <button type="submit" class='botao-salvar'>Salvar</button>
+                </form>
+            </div>
+        </div>
+
         <?php
-        // Sla bota oq quiser aqui
-        ?>
-        </section>
-        </div>
 
+        ?>
     </main>
 
     <footer class= 'footer'>
@@ -138,6 +111,27 @@ if (isset($_SESSION["user"])) {
             <?php echo date("Y"); ?> VetMemories
         </p>
     </footer>
+
+    <script src="modalFunctions.js" type="module"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const modal = document.getElementById('myModal');
+            const btn = document.getElementById('openModal');
+            const closeBtn = document.querySelector('.close');
+            
+            btn.addEventListener('click', function() {
+                modal.style.display = 'block';
+            });
+            closeBtn.addEventListener('click', function() {
+                modal.style.display = 'none';
+            });
+            modal.addEventListener('click', function(event) {
+                if (event.target === modal) {
+                    modal.style.display = 'none';
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>

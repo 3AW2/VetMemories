@@ -24,7 +24,7 @@ if (isset($_SESSION["user"])) {
 
         <div class='header'>
             <div class='titulo'>
-                <h1><a href="home.php" id='logo'>Vet Memories</a></h1>
+                <h1><a href="homeLog.php" id='logo'>Vet Memories</a></h1>
                 <?php
                 if (!isset($_SESSION["user"])) { ?>
 
@@ -39,7 +39,7 @@ if (isset($_SESSION["user"])) {
                     <ul>
 
                         <li class='elemento'>
-                            <form action="home.php" method="get">
+                            <form action="homeLog.php" method="get">
                                 <button type="submit" name="acao" value="Sair" class='botao-menu'>Sair</button>
                             </form>
                         </li>
@@ -64,22 +64,34 @@ if (isset($_SESSION["user"])) {
     <main>
         <div class='div-destaque'>
             <section class="destaque">
-                <h2>Conheça o Vet Memories</h2>
-                <h3>
-                    <?php echo "descreve aqui um pouco do projeto"; ?>
-                </h3>
-                <img src="<?php echo "caminhodafoto" ?>" alt="Imagem sobre o site (ou n)">
-                <p>
-                    <?php echo "oieeeeeee"; ?>
-                </p>
-
-                <h2>Mais vantagens do nosso site</h2>
+                <div class="subtitulo">
+                    <h2>PERFIL</h2>
+                </div>
             </section>
         </div>
-
+        <div class='div-destaque'>
+            <section class="dados-subtitulo">
+                <div>
+                    <h2><!-- ?php
+                        echo $user
+                    ? --> user</h2>
+                </div>
+                <br>
+                <div class= "dados">
+                    <p><b>Nome:</b></p><br>
+                    <p><b>Turma:</b></p><br>
+                    <p><b>Escola:</b></p><br>
+                    <p><b>Email:</b></p><br>
+                </div><br>
+                <div>
+                    <h2>Biografia</h2><br><br>
+                    <label for="bio" class="bio"><input type="text"></label>
+                </div><br><br>
+            </section>
+        </div>
     </main>
 
-    <footer>
+    <footer class= 'footer'>
         <p>&copy;
             <?php echo date("Y"); ?> VetMemories
         </p>
