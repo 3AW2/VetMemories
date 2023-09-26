@@ -4,8 +4,12 @@
     font-family: 'Josefin Sans', sans-serif;
 }
 
-body{
+.body{
     background-color: #bde0fe;
+}
+
+.body-dark{
+    background-color: #354452;
 }
 
 .header{
@@ -20,13 +24,21 @@ body{
     height: auto;
 }
 
-.titulo #logo{
+.titulo-dark{
+    background-color: #17222c;
+    padding: 1%;
+    border-bottom: 3px solid rgba(255, 255, 255, 0.588); 
+    width: 100%;
+    height: auto;
+}
+
+.titulo #logo, .titulo-dark #logo{
     text-decoration: none;
     color: whitesmoke;
     font-family: 'Schoolbell', cursive;
 }
 
-.titulo h1{
+.titulo h1, .titulo-dark h1{
     text-align: center;
     align-items: center;
     font-size: 45px;
@@ -39,7 +51,7 @@ body{
     margin-right: 3%;
 }
 
-.elemento{
+.elemento, .elemento-dark{
     display: inline;
     margin: 10px;
     float: right;
@@ -51,10 +63,31 @@ body{
     
 }
 
+.elemento-dark a{
+    color: whitesmoke;
+    text-decoration: none;
+    
+}
+
 .botao-menu {
     font-size: 20px;
     padding: 7px 15px;
     background-color: #a2d2ff; 
+    border-radius: 10px;
+    color: rgb(0, 0, 0); 
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.5s; 
+}
+
+.botao-menu:hover {
+    background-color: #92bde5;
+}
+
+.botao-menu-dark {
+    font-size: 20px;
+    padding: 7px 15px;
+    background-color: #233f4b; 
     border-radius: 10px;
     color: #fff; 
     border: none;
@@ -62,7 +95,7 @@ body{
     transition: background-color 0.5s; 
 }
 
-.botao-menu:hover {
+.botao-menu-dark:hover {
     background-color: #92bde5;
 }
 
@@ -113,6 +146,18 @@ body{
     width: 450px;
     border-radius: 30px;
     background-color: #d19ef1;
+    color: whitesmoke;
+    text-align: center;
+    border: 3px solid rgba(255, 255, 255, 0.622); 
+}
+
+.subtitulo-dark{
+    display: inline-block;
+    margin: 0 auto;
+    padding: 20px;
+    width: 450px;
+    border-radius: 30px;
+    background-color: #723f92;
     color: whitesmoke;
     text-align: center;
     border: 3px solid rgba(255, 255, 255, 0.622); 

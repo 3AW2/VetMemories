@@ -22,7 +22,7 @@ if (isset($_SESSION["user"])) {
         rel="stylesheet">
 </head>
 
-<body>
+<body class="body">
     <header>
 
         <div class='header'>
@@ -40,13 +40,14 @@ if (isset($_SESSION["user"])) {
                     <?php
                 } else { ?>
                     <ul>
+                        <li>
+                            <button class="botao-menu"><img src="../imagens/night-mode"></button>
+                        </li>
 
                         <li class='elemento'>
                             <form action="home.php" method="get">
                                 <button type="submit" name="acao" value="Sair" class='botao-menu'>Sair</button>
                             </form>
-                        </li>
-                        <li class='elemento'><button class='botao-menu'><a href="memorias.php">Memorias</a></button>
                         </li>
 
                         <li class='elemento'><button class='botao-menu'><a href="perfil.php">Perfil</a></button>

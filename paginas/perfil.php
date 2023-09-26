@@ -43,8 +43,6 @@ if (isset($_SESSION["user"])) {
                                 <button type="submit" name="acao" value="Sair" class='botao-menu'>Sair</button>
                             </form>
                         </li>
-                        <li class='elemento'><button class='botao-menu'><a href="memorias.php">Memorias</a></button>
-                        </li>
 
                         <li class='elemento'><button class='botao-menu'><a href="perfil.php">Perfil</a></button>
                         </li>
