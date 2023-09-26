@@ -61,20 +61,37 @@ if (isset($_SESSION["user"])) {
 </header>
 
 <body>
+<div class='div-destaque'>
+  </div>
+  <div class='div-destaque'>
+      <section class="dados-subtitulo">
+          <div>
+            <h1>Faça seu login no VetMemories</h1>
+          </div>
+          <br>
+          <div class= "dados">
+            <br>
+            <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+            <p><b><label for="email">Email:</label></b>
+            <input type="text" id="email" name="email" required></p>
+            <br>
+            <p><b><label for="password">Senha:</label></b>
+            <input type="password" id="password" name="password" required></p>
+            <p class="alert"><?php echo $erro ?> </p>
+            <br>
+            <button type="submit" class="botao-menu">Entrar</button>
+          </div><br>
+          <div>
+          </form>
+            <p>Não tem cadastro? 
+            <a href="cadastro.php">Cadastre-se</a> </p>
+          </div><br><br>
+      </section>
+  </div>
   <div class="container">
-    <h1>Login</h1>
-    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-      <label for="email">Email:</label>
-      <input type="text" id="email" name="email" required>
-
-      <label for="password">Senha:</label>
-      <input type="password" id="password" name="password" required>
-      <p class="alert"><?php echo $erro ?> </p>
-
-      <button type="submit">Logar</button>
-    </form>
-
-    <p>Não tem cadastro? <a href="cadastro.php">Cadastre-se</a> </p>
+    
+    
+    
   </div>
 </body>
 

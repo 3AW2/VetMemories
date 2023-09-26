@@ -72,8 +72,6 @@ if (isset($_SESSION["user"])) {
                     <h2>MINHAS MEMÓRIAS</h2>
                 </div>
                 <br>
-
-
                 <div>
                 <button id="openModal" class="botao-modal">+</button>
                 </div>

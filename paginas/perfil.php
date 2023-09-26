@@ -85,7 +85,7 @@ if (isset($_SESSION["user"])) {
                 </div><br>
                 <div>
                     <h2>Biografia</h2><br><br>
-                    <label for="bio" class="bio"><input type="text"></label>
+                    <label for="bio" class="bio"><input type="text-bio"></label>
                 </div><br><br>
             </section>
         </div>

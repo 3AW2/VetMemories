@@ -130,7 +130,7 @@ body{
     border: 3px solid rgba(255, 255, 255, 0.622); 
 }
 
-input[type='text']{
+input[type='text-bio']{
     border-radius: 15px;
     padding: 18px 15px;
     width: 75%;
@@ -222,22 +222,22 @@ input[type='text']{
     padding: 7px 15px;
     background-color: #d7ffa2; 
     border-radius: 10px;
-    color: #fff; 
+    color: #555555; 
     border: 2px solid #a1e660;
     cursor: pointer;
     transition: background-color 0.5s; 
 }
 
 .botao-salvar:hover {
-    background-color: #e5cf92;
+    background-color: #bae592;
 }
 
 .close {
     padding: 5px 10px;
     border-radius: 50%;
-    border: 3px solid #dfbc4b;
-    background-color: #eed171;
-    color: #000;
+    border: 3px solid #a1e660;
+    background-color: #d7ffa2;
+    color: #555555;
     float: right;
     font-size: 28px;
     font-weight: bold;
@@ -251,6 +251,8 @@ input[type='text']{
 }
 
 .botao-modal {
+    position: fixed;
+    right: 0;
     margin-right: 25px;
     float: right;
     font-size: 30px;
