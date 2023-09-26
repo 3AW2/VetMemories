@@ -22,7 +22,7 @@ if (isset($_SESSION["user"])) {
         rel="stylesheet">
 </head>
 
-<body>
+<body class="body">
     <header>
 
         <div class='header'>

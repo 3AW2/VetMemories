@@ -42,7 +42,7 @@ if (!empty($_COOKIE["mode"]) && $_COOKIE["mode"] == "dark") {
     <header>
 
         <div class='header'>
-            <div class='titulo'>
+            <div class=<?php echo "titulo" . $mode ?>>
                 <h1><a href="homeLog.php" id='logo'>Vet Memories</a></h1>
                 <?php
                 if (!isset($_SESSION["user"])) { ?>
@@ -56,20 +56,20 @@ if (!empty($_COOKIE["mode"]) && $_COOKIE["mode"] == "dark") {
                     <?php
                 } else { ?>
                     <ul>
-                        <li class="elemento">
+                        <li class=<?php echo "elemento" . $mode ?>>
                             <form action="homeLog.php" method="get">
                                 <button type="submit" name="acao" value="dark" class=<?php echo "botao-menu" . $mode ?>>
                                     <img src="../imagens/night-mode.png" style="max-width: 2vw;"> </button>
                             </form>
                         </li>
 
-                        <li class='elemento'>
+                        <li class=<?php echo "elemento" . $mode ?>>
                             <form action="homeLog.php" method="get">
                                 <button type="submit" name="acao" value="Sair" class=<?php echo "botao-menu" . $mode ?>>Sair</button>
                             </form>
                         </li>
 
-                        <li class='elemento'><button class=<?php echo "botao-menu" . $mode ?>><a href="perfil.php">Perfil</a></button>
+                        <li class=<?php echo "elemento" . $mode ?>><button class=<?php echo "botao-menu" . $mode ?>><a href="perfil.php">Perfil</a></button>
                         </li>
 
                     </ul>
@@ -88,7 +88,7 @@ if (!empty($_COOKIE["mode"]) && $_COOKIE["mode"] == "dark") {
         <div class='div-destaque'>
             <section class="destaque">
 
-                <div class='subtitulo'>
+                <div class=<?php echo "subtitulo" . $mode ?>>
                     <h2>MINHAS MEMÓRIAS</h2>
                 </div>
                 <br>
