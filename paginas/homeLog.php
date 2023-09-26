@@ -22,6 +22,12 @@ if (!empty($_COOKIE["mode"]) && $_COOKIE["mode"] == "dark") {
 } else {
     $mode = "";
 }
+
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["titulo"])) {
+    $titulo = $_POST["titulo"];
+    $data = $_POST["data"];
+    $comoFoi = $_POST["comoFoi"];
+}
 ?>
 
 <!DOCTYPE html>
@@ -100,58 +106,48 @@ if (!empty($_COOKIE["mode"]) && $_COOKIE["mode"] == "dark") {
 
         <!-- memória fixa -->
         <div class="memoria1Container">
-            <section class= "section-memorias">
-                <div class='section-memorias'>
-                    <section class="dados-subtitulo">
-                        <div>
-                            <h2>Guarde a sua memória</h2>
-                        </div>
-                        <br>
-                        <div class= "dados-fixo">
-                            <label for="memoria" id='label-memoria' class="label-memoria"> <p><b>Título da memória</b></p> <br><input type="text-titulo" id="memoria" name="memoria" required> </label>
-                            <br><br>
-                            <label for="data-memoria" id='label-memoria' class="label-memoria"> <p><b>Data</b></p> <br><input type="date" class="date-memoria-fixo" id="data-memoria" required> </label>
-                            <br><br>
-                        </div>
-                        <br>
-                        <label for="memoria" id='label-memoria' class="label-memoria"><h2><p><b>Como foi</b></p></h2> <br><input type="text-modal" id="memoria" name="memoria" required> </label>
-                        <br><br>    
-                    </section>
-                </div>
-            </section>
-            <section class="section-memorias">
-                <div class='section-memorias'>
-                    <section class="dados-subtitulo">
-                        <div>
-                            <h2>Guarde a sua memória</h2>
-                        </div>
-                        <br>
-                        <div class= "dados-fixo">
-                            <label for="memoria" id='label-memoria' class="label-memoria"> <p><b>Título da memória</b></p> <br><input type="text-titulo" id="memoria" name="memoria" required> </label>
-                            <br><br>
-                            <label for="data-memoria" id='label-memoria' class="label-memoria"> <p><b>Data</b></p> <br><input type="date" class="date-memoria-fixo" id="data-memoria" required> </label>
-                            <br><br>
-                        </div>
-                        <br>
-                        <label for="memoria" id='label-memoria' class="label-memoria"><h2><p><b>Como foi</b></p></h2> <br><input type="text-modal" id="memoria" name="memoria" required> </label>
-                        <br><br>    
-                    </section>
-                </div>
-            </section>
+            <div class='section-memorias'>
+                <section class="dados-subtitulo">
+                    <div>
+                    <h2><p><b><?php echo $titulo;?></b></p></h2> 
+                    </div>
+                    <br><br>
+                    <div text-align= left>
+                    <h3><p><b><?php echo $data;?></b></p></h3> 
+                    </div>
+                    <br><br>
+                    <h3><p><b><?php echo $comoFoi;?></b></p></h3> 
+                    <br><br>    
+                </section>
+            </div>
+            <div class='section-memorias'>
+            <section class="dados-subtitulo">
+                    <div>
+                        <h2><p><b>Titulo</b></p></h2>
+                    </div>
+                    <br><br>
+                    <div text-align= left>
+                        <h3><p><b>Data</b></p></h3>
+                    </div>
+                    <br><br>
+                    <h3><p><b>Como foi</b></p></h3> 
+                    <br><br>    
+                </section>  
+            </div>
         </div>
 
         <!-- modal -->
         <div id="myModal" class="modal" aria-modal="true" role="dialog">
             <div class="modal-content">
                 <button class="close" aria-label="Fechar modal">&times;</button>
-                <form id="memoriaForm">
-                    <h2><label for="memoria">Guarde a sua memória</label></h2>
+                <form id="memoriaForm" method="post" action="">
+                    <h2><label for="titulo">Guarde a sua memória</label></h2>
                     <br><br>
-                    <label for="memoria" id='label-memoria'> <p><b>Título da memória</b></p> <br><input type="text-titulo" id="memoria" name="memoria" required> </label>
+                    <label for="titulo" id='label-memoria'> <p><b>Título da memória</b></p> <br><input type="text" id="titulo" name="titulo" required> </label>
                     <br><br>
-                    <label for="data-memoria" id='label-memoria'> <p><b>Data</b></p> <br><input type="date" class="date-memoria-modal" id="data-memoria" required> </label>
+                    <label for="data" id='label-memoria'> <p><b>Data</b></p> <br><input type="date" class="date-memoria-modal" id="data" name="data" required> </label>
                     <br><br>
-                    <label for="memoria" id='label-memoria'><p><b>Como foi</b></p> <br><input type="text-modal" id="memoria" name="memoria" required> </label>
+                    <label for="comoFoi" id='label-memoria'><p><b>Como foi</b></p> <br><input type="text" id="comoFoi" name="comoFoi" required> </label>
                     <br><br>
                     <button type="submit" class='botao-salvar'>Salvar</button>
                 </form>
