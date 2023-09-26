@@ -12,7 +12,7 @@ if (isset($_SESSION["user"])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VetMemories</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Adicione seu arquivo CSS aqui -->
+    <link rel="stylesheet" href="../styles.css"> <!-- Adicione seu arquivo CSS aqui -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200;400&family=Schoolbell&display=swap"
@@ -21,33 +21,40 @@ if (isset($_SESSION["user"])) {
 
 <body>
     <header>
-        <div class='titulo'>
-            <h1>Vet Memories</h1>
 
-            <?php
-            if ($user != null) {
-
-                ?>
-                <ul>
-
-                    <li class='elemento'><button class='botao-menu'><a href="noticias.php">Cadastro</a></button></li>
-
-                    <li class='elemento'><button class='botao-menu'><a href="login.php">Login</a></button></li>
-                </ul>
-
-            <?php
-            } else {
-
-                ?>
-                <ul>
-
-                    <li class='elemento'><button class='botao-menu'><a href="noticias.php">Memorias</a></button></li>
-
-                    <li class='elemento'><button class='botao-menu'><a href="login.php">Perfil</a></button></li>
-                </ul>
+        <div class='header'>
+            <div class='titulo'>
+                <h1><a href="home.php" id='logo'>Vet Memories</a></h1>
                 <?php
-            }
-            ?>
+                if (!isset($_SESSION["user"])) { ?>
+
+                    <ul>
+                        <li class='elemento'><button class='botao-menu'><a href="./cadastro.php">Cadastro</a></button></li>
+
+                        <li class='elemento'><button class='botao-menu'><a href="./login.php">Login</a></button></li>
+                    </ul>
+
+                    <?php
+                } else { ?>
+                    <ul>
+
+                        <li class='elemento'>
+                            <form action="home.php" method="get">
+                                <button type="submit" name="acao" value="Sair" class='botao-menu'>Sair</button>
+                            </form>
+                        </li>
+                        <li class='elemento'><button class='botao-menu'><a href="memorias.php">Memorias</a></button>
+                        </li>
+
+                        <li class='elemento'><button class='botao-menu'><a href="perfil.php">Perfil</a></button>
+                        </li>
+
+                    </ul>
+                    <?php
+                } ?>
+
+            </div>
+        </div>
 
         </div>
 
@@ -58,11 +65,6 @@ if (isset($_SESSION["user"])) {
         <div class='div-destaque'>
             <section class="destaque">
                 <h2>Conheça o Vet Memories</h2>
-                <?php
-                // Aqui você pode incluir o código PHP para buscar e exibir a notícia em destaque
-                // Por exemplo: $noticiaDestaque = obterNoticiaDestaque(); // função hipotética
-                // Em seguida, exiba o título, imagem e resumo da notícia em destaque
-                ?>
                 <h3>
                     <?php echo "descreve aqui um pouco do projeto"; ?>
                 </h3>
@@ -72,9 +74,6 @@ if (isset($_SESSION["user"])) {
                 </p>
 
                 <h2>Mais vantagens do nosso site</h2>
-                <?php
-                // Sla bota oq quiser aqui
-                ?>
             </section>
         </div>
 

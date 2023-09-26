@@ -30,7 +30,7 @@ if (isset($_SESSION["user"])) {
                 ?>
                 <ul>
 
-                    <li class='elemento'><button class='botao-menu'><a href="noticias.php">Cadastro</a></button></li>
+                    <li class='elemento'><button class='botao-menu'><a href="cadastro.php">Cadastro</a></button></li>
 
                     <li class='elemento'><button class='botao-menu'><a href="login.php">Login</a></button></li>
                 </ul>
@@ -41,9 +41,9 @@ if (isset($_SESSION["user"])) {
                 ?>
                 <ul>
 
-                    <li class='elemento'><button class='botao-menu'><a href="noticias.php">Memorias</a></button></li>
+                    <li class='elemento'><button class='botao-menu'><a href="memorias.php">Memorias</a></button></li>
 
-                    <li class='elemento'><button class='botao-menu'><a href="login.php">Perfil</a></button></li>
+                    <li class='elemento'><button class='botao-menu'><a href="perfil.php">Perfil</a></button></li>
                 </ul>
                 <?php
             }
@@ -58,11 +58,6 @@ if (isset($_SESSION["user"])) {
         <div class='div-destaque'>
             <section class="destaque">
                 <h2>Conheça o Vet Memories</h2>
-                <?php
-                // Aqui você pode incluir o código PHP para buscar e exibir a notícia em destaque
-                // Por exemplo: $noticiaDestaque = obterNoticiaDestaque(); // função hipotética
-                // Em seguida, exiba o título, imagem e resumo da notícia em destaque
-                ?>
                 <h3>
                     <?php echo "descreve aqui um pouco do projeto"; ?>
                 </h3>
@@ -72,9 +67,6 @@ if (isset($_SESSION["user"])) {
                 </p>
 
                 <h2>Mais vantagens do nosso site</h2>
-                <?php
-                // Sla bota oq quiser aqui
-                ?>
             </section>
         </div>
 

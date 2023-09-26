@@ -147,3 +147,7 @@ body{
     margin-left: 250px; /* Ajuste a margem para dar espaço ao menu-lateral lateral */
     padding: 20px;
 }
+
+.alert {
+    color: red;
+}
