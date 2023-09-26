@@ -147,15 +147,17 @@ if (!empty($_COOKIE["mode"]) && $_COOKIE["mode"] == "dark") {
                 <form id="memoriaForm">
                     <h2><label for="memoria">Guarde a sua memória</label></h2>
                     <br><br>
-                    <label for="memoria" id='label-memoria'><input type="text" id="memoria" name="memoria" required> </label>
+                    <label for="memoria" id='label-memoria'> <p><b>Título da memória</b></p> <br><input type="text-titulo" id="memoria" name="memoria" required> </label>
+                    <br><br>
+                    <label for="data-memoria" id='label-memoria'> <p><b>Data</b></p> <br><input type="date" class="date-memoria-modal" id="data-memoria" required> </label>
+                    <br><br>
+                    <label for="memoria" id='label-memoria'><p><b>Como foi</b></p> <br><input type="text-modal" id="memoria" name="memoria" required> </label>
                     <br><br>
                     <button type="submit" class='botao-salvar'>Salvar</button>
                 </form>
             </div>
         </div>
-
         <?php
-
         ?>
     </main>
 
