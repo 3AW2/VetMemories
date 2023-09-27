@@ -233,7 +233,15 @@ input[type='text-modal']{
 }
 
 input[type='text-titulo']{
-    border-radius: 15px;
+    border-radius: 10px;
+    width: 40%;
+    height: 15px;
+    text-align: left;
+    border: 2px solid rgb(202, 204, 75);
+}
+
+.text-login{
+    border-radius: 10px;
     width: 40%;
     height: 25px;
     text-align: left;
@@ -262,7 +270,18 @@ input[type='text-titulo']{
     text-align: left;
     width: 100%;
     box-sizing: content-box;
-    height: 150px;
+    height: 170px;
+    box-sizing: border-box;
+}
+
+.dados-cadastro{
+    padding: 18px 15px;
+    background-color: #eaebb7;
+    color: rgb(51, 51, 51);
+    text-align: left;
+    width: 100%;
+    box-sizing: content-box;
+    height: 350px;
     box-sizing: border-box;
 }
 

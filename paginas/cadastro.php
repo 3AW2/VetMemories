@@ -4,6 +4,21 @@
 
   $nome_err = " ";
 
+  if (!empty($_GET["acao"])) {
+    if ($_GET["acao"] == "dark") {
+      if (empty($_COOKIE["mode"])) {
+        setcookie("mode", "dark", time() + 60000000, "/");
+        header("location:cadastro.php");
+      } elseif ($_COOKIE["mode"] == "dark") {
+        setcookie("mode", "light", time() + 6000000, "/");
+        header("location:cadastro.php");
+      } else {
+        setcookie("mode", "dark", time() + 60000000, "/");
+        header("location:cadastro.php");
+      }
+    }
+  }
+
   if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nome = $_POST["nome"];
     $turma = $_POST["turma"];
@@ -43,6 +58,11 @@
 
   }
 
+  if (!empty($_COOKIE["mode"]) && $_COOKIE["mode"] == "dark") {
+    $mode = "-dark";
+  } else {
+    $mode = "";
+  }
 ?>
 
 <!DOCTYPE html>
@@ -60,50 +80,74 @@
 
 <header>
   <div class='header'>
-      
-      <div class='titulo'>
-          <h1><a href="home.php" id='logo'>Vet Memories</a></h1>
-          
-          <ul>
-              
-              <li class='elemento'><button class='botao-menu'><a href="cadastro.php">Cadastro</a></button></li>     
-              
-              <li class='elemento'><button class='botao-menu'><a href="login.php">Login</a></button></li>
-          </ul>
-      </div>  
+
+    <div class=<?php echo "titulo" . $mode ?>>
+      <h1><a href="home.php" id='logo'>Vet Memories</a></h1>
+
+      <ul>
+        <li class=<?php echo "elemento" . $mode ?>>
+          <form action="cadastro.php" method="get">
+            <button type="submit" name="acao" value="dark" class=<?php echo "botao-menu" . $mode ?>>
+              <img src="../imagens/night-mode.png" style="max-width: 2vw;"> </button>
+          </form>
+        </li>
+
+        <li class=<?php echo "elemento" . $mode ?>><button class=<?php echo "botao-menu" . $mode ?>><a
+              href="cadastro.php">Cadastro</a></button></li>
+
+        <li class=<?php echo "elemento" . $mode ?>><button class=<?php echo "botao-menu" . $mode ?>><a
+              href="login.php">Login</a></button></li>
+      </ul>
+    </div>
   </div>
 </header>
 
-<body>
-    <div class="container">
-        <h1>Cadastro</h1>
+<body class=<?php echo "body" . $mode ?>>
+  <div class='div-destaque'>
+  </div>
+  <div class='div-destaque'>
+    <section class=<?php echo "dados-subtitulo" . $mode ?>>
+      <div>
+        <h3 class=<?php echo "texto" . $mode ?>>Faça seu cadastro no VetMemories</h3>
+      </div>
+      <br>
+      <div class="dados-cadastro">
+        <br>
         <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-            <label for="nome">Nome:</label>
-            <input type="text" id="nome" name="nome" maxlength="40" required>
+            <p><b><label for="nome">Nome:</label>
+            <input type="text" class="text-login" id="nome" name="nome" maxlength="40" required></p></b><br>
 
-            <label for="nick">Nickname:</label>
-            <input type="nome" maxlength="10" id="nick" name="nick" required>
+            <p><b><label for="nick">Nickname:</label>
+            <input type="nome" class="text-login" maxlength="10" id="nick" name="nick" required></p></b><br>
 
-            <label for="turma">Turma:</label>
-            <input type="text" maxlength="5" id="turma" name="turma" required>
+            <p><b><label for="turma">Turma:</label>
+            <input type="text" class="text-login" maxlength="5" id="turma" name="turma" required></p></b><br>
 
-            <label for="escola">Escola:</label>
-            <input type="text" id="escola" name="escola" maxlength="40" required>
+            <p><b><label for="escola">Escola:</label>
+            <input type="text" class="text-login" id="escola" name="escola" maxlength="40" required></p></b><br>
 
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
+            <p><b><label for="email">Email:</label>
+            <input type="email" class="text-login" id="email" name="email" required></p></b><br>
 
-            <label for="password">Senha:</label>
-            <input type="password" id="password" name="password" required>
+            <p><b><label for="password">Senha:</label>
+            <input type="password" class="text-login" id="password" name="password" required></p></b><br>
 
-            <button type="submit">Cadastrar</button>
+            <button type="submit" class="botao-menu">Cadastrar</button>
 
             <p class="alert"><?php echo $nome_err ?> </p>
             <br>
         </form>
-
-        <p>Não tem cadastro? <a href="cadastro.php">Cadastre-se</a> </p>
-    </div>
+      </div><br>
+      <div>
+        </form>
+        <p>Não tem cadastro?
+          <a href="cadastro.php">Cadastre-se</a>
+        </p>
+      </div><br><br>
+    </section>
+  </div>
+  <div class="container">
+  </div>
 </body>
 
 </html>

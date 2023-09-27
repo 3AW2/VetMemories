@@ -95,18 +95,18 @@ if (!empty($_COOKIE["mode"]) && $_COOKIE["mode"] == "dark") {
   <div class='div-destaque'>
     <section class=<?php echo "dados-subtitulo" . $mode ?>>
       <div>
-        <h1 class=<?php echo "texto" . $mode ?>>Faça seu login no VetMemories</h1>
+        <h3 class=<?php echo "texto" . $mode ?>>Faça seu login no VetMemories</h>
       </div>
       <br>
       <div class="dados">
         <br>
         <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
           <p><b><label for="email">Email:</label></b>
-            <input type="text" id="email" name="email" required>
+            <input type="text" class="text-login" id="email" name="email" required>
           </p>
           <br>
           <p><b><label for="password">Senha:</label></b>
-            <input type="password" id="password" name="password" required>
+            <input type="password" class="text-login" id="password" name="password" required>
           </p>
           <p class="alert">
             <?php echo $erro ?>
@@ -123,9 +123,6 @@ if (!empty($_COOKIE["mode"]) && $_COOKIE["mode"] == "dark") {
     </section>
   </div>
   <div class="container">
-
-
-
   </div>
 </body>
 
