@@ -2,13 +2,15 @@
 include "user.php";
 
 class Perfil {
+    private $NickName;
     private $Nome;
     private $AnoEscolar;
     private $Biografia;
     private $Escola;
     private $User;
 
-    public function __construct($Nome, $AnoEscolar, $Escola, $Email, $Senha, $Biografia='-') {
+    public function __construct($NickName, $Nome, $AnoEscolar, $Escola, $Email, $Senha, $Biografia='-') {
+        $this->setNickName($NickName);
         $this->setNome($Nome);
         $this->setAnoEscolar($AnoEscolar);
         $this->setEscola($Escola);
@@ -17,6 +19,9 @@ class Perfil {
 
     }
 
+    public function getNickName() {
+        return $this->NickName;
+    }
 
     public function getNome() {
         return $this->Nome;
@@ -37,6 +42,11 @@ class Perfil {
     public function getUser() {
         return $this->User;
     }
+
+    public function setNickName($NickName) {
+        $this->NickName = $NickName;
+    }
+
     public function setNome($Nome) {
         $this->Nome = $Nome;
     }

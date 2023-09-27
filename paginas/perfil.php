@@ -1,5 +1,7 @@
 <?php
 session_start();
+include "../Perfil.php";
+
 if (!empty($_GET["acao"])) {
     if ($_GET["acao"] == "dark") {
         if (empty($_COOKIE["mode"])) {
@@ -22,6 +24,20 @@ if (!empty($_COOKIE["mode"]) && $_COOKIE["mode"] == "dark") {
 } else {
     $mode = "";
 }
+
+$pessoa1 = new Perfil("aferreiras", "Amanda Maria", "4º ano", "IFSP", "amanda@gmail.com", "4321", "oieeeeeeeeeeeeeeeeeeeeeeeeee");
+$pessoa2 = new Perfil("tucomego", "Arthur de Melo", "4º ano", "IFSP", "tuco@gmail.com", "4321", "Sou um aluno que vai tirar 9 em AW2 !");
+$pessoa3 = new Perfil("analuOl", "Ana Luisa", "4º ano", "IFSP", "analu@gmail.com", "4321", "Sou uma aluna que vai tirar 9 em AW2 !");
+
+$usuarios = array($pessoa1, $pessoa2, $pessoa3);
+
+// foreach ($usuarios as $p) {
+//     if ($p->getNickName() == "aferreiras") {
+//         $pessoaLogada = $p;
+//     } 
+// }
+
+$pessoaLogada = $pessoa1;
 ?>
 
 <!DOCTYPE html>
@@ -84,21 +100,24 @@ if (!empty($_COOKIE["mode"]) && $_COOKIE["mode"] == "dark") {
             <section class="dados-subtitulo">
                 <div>
                     <h2>
-                        <!-- ?php
-                        echo $user
-                    ? --> user
+
                     </h2>
                 </div>
                 <br>
                 <div class="dados">
-                    <p><b>Nome:</b></p><br>
-                    <p><b>Turma:</b></p><br>
-                    <p><b>Escola:</b></p><br>
-                    <p><b>Email:</b></p><br>
+                    <p><b>Nome:
+                            <?php echo $pessoaLogada->getNome() ?>
+                        </b></p><br>
+                    <p><b>Ano:
+                            <?php echo $pessoaLogada->getAnoEscolar() ?>
+                        </b></p><br>
+                    <p><b>Escola:
+                            <?php echo $pessoaLogada->getEscola() ?>
+                        </b></p><br>
                 </div><br>
                 <div>
                     <h2>Biografia</h2><br><br>
-                    <label for="bio" class="bio"><input type="text-bio"></label>
+                    <label for="bio" class="bio"><input type="text-bio" value=<?php echo $pessoaLogada->getBiografia() ?>></label>
                 </div><br><br>
             </section>
         </div>
