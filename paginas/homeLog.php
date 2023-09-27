@@ -122,36 +122,22 @@ $comoFoi = isset($_POST["comoFoi"]) ? $_POST["comoFoi"] : "";
                     </div>
                     <br><br>
                     <h3><p><b><?php
-                    if ($titulo == null) {
+                    if ($data == null) {
                         echo " ";
                     }
                     else{
-                    echo $titulo;
+                    echo $data;
                     }?></b></p></h3> 
                     <br><br>
                     <h3><p><b><?php
-                    if ($titulo == null) {
+                    if ($comoFoi == null) {
                         echo " ";
                     }
                     else{
-                    echo $titulo;
+                    echo $comoFoi;
                     }?></b></p></h3> 
                     <br><br>    
                 </section>
-            </div>
-            <div class='section-memorias'>
-            <section class="dados-subtitulo">
-                    <div>
-                        <h2><p><b>Titulo</b></p></h2>
-                    </div>
-                    <br><br>
-                    <div text-align= left>
-                        <h3><p><b>Data</b></p></h3>
-                    </div>
-                    <br><br>
-                    <h3><p><b>Como foi</b></p></h3> 
-                    <br><br>    
-                </section>  
             </div>
         </div>
 
