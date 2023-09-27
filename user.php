@@ -30,4 +30,15 @@ class User{
     }
 }
 
+$pessoa1 = new User("amanda@gmail.com", "4321");
+$pessoa2 = new User("analu@gmail.com", "1234");
+$pessoa3 = new User("tuco@gmail.com", "abcd");
+
+$usuarios = [];
+
+array_push($usuarios, $pessoa1);
+array_push($usuarios, $pessoa2);
+array_push($usuarios, $pessoa3);
+
+
 ?>
